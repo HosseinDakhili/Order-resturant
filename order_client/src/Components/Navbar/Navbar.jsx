@@ -2,8 +2,12 @@ import React from "react";
 import assets from "../../assets";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar/SearchBar";
+import { useSelector } from "react-redux";
+import { FaShoppingCart } from "react-icons/fa";
 
 export default function Navbar() {
+  const { jwt } = useSelector((state) => state.auth);
+  const cartLength = useSelector((state) => state.cart.items)?.length;
   return (
     <nav
       dir="rtl"
@@ -30,17 +34,33 @@ export default function Navbar() {
         <li>
           <Link to={"/best-foods"}>بهترین غذاها</Link>
         </li>
+        <li className="relative">
+          {cartLength > 0 && (
+            <span className="absolute bottom-2 bg-red-600 w-2 h-5  px-2.5 py-1   translate-x-3 rounded-full   left-0 flex justify-center items-center">
+              <p className="   text-[13px]  text-white ">{cartLength}</p>
+            </span>
+          )}
+
+          <Link to={"/cart"}>
+            <FaShoppingCart className="scale-140" />{" "}
+          </Link>
+        </li>
         <li>
           <Link to={"/feedback"}>نظرات</Link>
         </li>
       </ul>
-
-      <Link to={"/auth"} className="w-full md:w-auto">
+          {!jwt?
+           <Link to={"/auth"} className="w-full md:w-auto">
         <button className="w-full md:w-auto flex gap-2 bg-[#03081F] text-white px-4 py-1 items-center justify-center rounded-2xl">
           <img src={assets.userIcon} alt="user" className="h-5 w-5" />
           <span>ورود/ثبت نام</span>
         </button>
       </Link>
+          
+          :
+          <button className="w-full md:w-auto flex gap-2 bg-red-600 text-white px-4 py-1 items-center justify-center rounded-2xl">خروج از حساب کاربری</button>
+          }
+     
     </nav>
   );
 }
