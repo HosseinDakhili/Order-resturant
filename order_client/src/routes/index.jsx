@@ -7,6 +7,9 @@ import Cart from "../pages/Cart/Cart";
 import Public from '../Routes/Authentication/Public'; 
 import Auth from "../pages/Auth/Auth";
 import NotFound from "../pages/NotFound/NotFound";
+import Categories from "../pages/Categories/Categories";
+import BestFoods from "../pages/BestFoods/BestFoods";
+import Feedback from "../pages/Feedback/Feedback";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -18,12 +21,25 @@ const router = createBrowserRouter([
                 element:<Home/>
             },
             {
+                path:'/categories',
+                element:<Categories/>
+
+            },
+            {
                 path:'/foods/:categoryId/:categoryName',
                 element:<Foods/>
             },
             {
                 path:'/food-details/:id/:name',
                 element:<FoodDetails/>
+            },
+            {
+                path:'/best-foods',
+                element:<BestFoods/>
+            },
+            {
+                path:'/feedback',
+                element:<Feedback/>
             },
             {
                 path:'/cart',
