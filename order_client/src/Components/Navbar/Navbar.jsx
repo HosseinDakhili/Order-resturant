@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <nav
       dir="rtl"
-      className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 px-[5%] py-4"
+      className="w-full border-b-1 border-gray-300 shadow-md flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 px-[5%] py-4"
     >
       <div className="flex items-center justify-between w-full md:w-auto">
         <img src={assets.logo} alt="logo" className="h-8" />
