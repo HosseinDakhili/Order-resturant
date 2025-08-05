@@ -19,7 +19,7 @@ const cartSlice = createSlice({
             state.items = state.items.filter((pr)=>{
                 if(pr?.id == action.payload){
 
-                    pr?.cartQuantity--
+                    pr.cartQuantity--
                     state.totalPrice = state.totalPrice - pr?.price
                     if(pr?.cartQuantity == 0){
                         return false
