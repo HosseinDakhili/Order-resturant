@@ -7,7 +7,7 @@ export default function Layout() {
   return (
     <>
     <Navbar/>
-    <main dir='rtl' className='min-h-[70vh]'>
+    <main dir='rtl' className='min-h-[70vh] px-[5%]'>
       <Outlet/>
     </main>
     <Footer/>
