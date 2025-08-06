@@ -29,6 +29,10 @@
         "videos",
         "audios"
       ]
+    },
+    "rating": {
+      "type": "decimal",
+      "max": 5
     }
   }
 }

@@ -5,6 +5,7 @@ import snapchat_icon from './media/snapchatIcon.png'
 import tiktok_icon from './media/tiktokIcon.png'
 import userIcon from './media/userIcon.png'
 import temp from './media/temp.png'
+import star from './media/star.png'
 
  const assets = {
     logo,
@@ -13,7 +14,8 @@ import temp from './media/temp.png'
     snapchat_icon,
     tiktok_icon,
     userIcon,
-    temp
+    temp,
+    star
 } 
 
 export default assets
