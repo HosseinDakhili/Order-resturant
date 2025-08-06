@@ -9,7 +9,6 @@ export default function Home() {
     <>
      <MainSlider/>
      <DiscountFood/>
-     
      <Categories/>
     </>
   )

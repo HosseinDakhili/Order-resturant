@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import assets from "../../../assets";
 import { Link, useNavigate } from "react-router-dom";
 import fetchData from "../../../Utils/fetchData";
+import CategoriesSkeleton from "./CategoriesSkeleton/CategoriesSkeleton";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -15,6 +16,20 @@ export default function Categories() {
     })();
   }, []);
   const navigate = useNavigate();
+
+  if(!categories || categories.length==0) return(
+    <section className="my-22 px-4 md:px-16">
+      <h3 className="font-extrabold text-xl md:text-2xl text-center md:text-right">
+        دسته‌بندی‌های محبوب Order.uk 🤩
+      </h3>
+      <div className="my-12 flex flex-wrap gap-6 justify-center md:justify-start lg:flex-nowrap">
+        {Array.from({length:6}).map((_,i)=>{
+          return <CategoriesSkeleton key={i}/>
+        })}
+      </div>
+     
+    </section>
+  )
 
   const categoryItems = categories?.map((c) => {
     return (
