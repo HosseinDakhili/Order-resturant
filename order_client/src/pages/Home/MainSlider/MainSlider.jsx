@@ -31,17 +31,22 @@ export default function MainSlider() {
   });
 
   return (
-    <section className="my-[48px] mx-auto w-[90%] h-[70vh] rounded-[25px] overflow-hidden">
-      <Swiper
-        modules={[Autoplay, Pagination, Navigation]}
-        spaceBetween={50}
-        autoplay={{ delay: 3000 }}
-        pagination={{ clickable: true }}
-        // navigation
-        className="mainSlider"
-      >
-        {slideItems}
-      </Swiper>
-    </section>
+    <section
+  className="my-[48px] mx-auto w-[90%] max-w-[1200px] rounded-[25px] overflow-hidden
+    h-[50vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh]"
+>
+  <Swiper
+    modules={[Autoplay, Pagination, Navigation]}
+    autoplay={{ delay: 3000 }}
+    pagination={{ clickable: true }}
+    // navigation
+    className="mainSlider"
+  
+  >
+    {slideItems}
+  </Swiper>
+</section>
+
+
   );
 }

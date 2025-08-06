@@ -16,35 +16,39 @@ export default function DiscountFood() {
 
   const foodItems = foods.map((f) => {
     return (
-      <div key={f?.id} className="w-[496px] h-[325px] relative">
-        <span className=" absolute flex justify-center items-center w-[88px] h-[66px] rounded-b-2xl bg-[#03081F] z-50 right-9">
-          <p className="text-white font-extrabold">{f?.discount}%</p>
-        </span>
-        <img
-          className="w-full h-full brightness-60 "
-          src={
-            import.meta.env.VITE_BASE_FILE +
-            f?.img?.[0]?.formats?.thumbnail?.url
-          }
-          alt=""
-        />
-        <h6 className="absolute text-lg  text-white bottom-3 right-[17%] font-extrabold ">
-          {f?.name}
-        </h6>
-      </div>
+      <div
+    key={f?.id}
+    className="relative w-full max-w-[496px] h-[325px] md:h-[300px] sm:h-[250px]"
+  >
+    <span className="absolute flex justify-center items-center w-[88px] h-[66px] rounded-b-2xl bg-[#03081F] z-50 right-5 md:right-7 sm:right-3">
+      <p className="text-white font-extrabold">{f?.discount}%</p>
+    </span>
+    <img
+      className="w-full h-full brightness-60 object-cover"
+      src={
+        import.meta.env.VITE_BASE_FILE +
+        f?.img?.[0]?.formats?.thumbnail?.url
+      }
+      alt={f?.name || ""}
+    />
+    <h6 className="absolute text-base md:text-lg sm:text-sm text-white bottom-3 right-[15%] md:right-[17%] sm:right-[12%] font-extrabold">
+      {f?.name}
+    </h6>
+  </div>
     );
   });
 
 
 
   return (
-    <section dir="rtl" className="my-22  ">
-      <h3 className="text-2xl font-semibold">
-        تا ۷۰٪ تخفیف 🎊 تخفیف‌های اختصاصی در Order.uk
-      </h3>
-      <div className="my-12 flex gap-6">
-        {foodItems}
-      </div>
-    </section>
+   <section dir="rtl" className="my-22 px-4 md:px-8 lg:px-16">
+  <h3 className="text-2xl font-semibold mb-6">
+    تا ۷۰٪ تخفیف 🎊 تخفیف‌های اختصاصی در Order.uk
+  </h3>
+  <div className="flex flex-wrap md:flex-nowrap gap-6">
+    {foodItems}
+  </div>
+</section>
+
   );
 }

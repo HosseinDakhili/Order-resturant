@@ -423,6 +423,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    popular: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
