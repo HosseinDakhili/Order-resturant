@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import "./styles.css";
 import { useEffect, useState } from "react";
 import fetchData from "../../../Utils/fetchData";
+import Loading from "../../../Components/Loading/Loading";
 
 export default function MainSlider() {
   const [slides, setSlides] = useState([]);
@@ -17,37 +18,36 @@ export default function MainSlider() {
     })();
   }, []);
 
+  if(!slides || slides.length==0) return <Loading/>
+
   const slideItems = slides?.map((s) => {
     return (
-      <SwiperSlide
-        key={s?.id}
-
-        
-      >
-        <img src={import.meta.env.VITE_BASE_FILE+s?.img?.[0]?.formats?.thumbnail?.url
-} alt="" />
+      <SwiperSlide key={s?.id}>
+        <img
+          src={
+            import.meta.env.VITE_BASE_FILE +
+            s?.img?.[0]?.formats?.thumbnail?.url
+          }
+          alt=""
+        />
       </SwiperSlide>
     );
   });
 
   return (
     <section
-  className="my-[48px] mx-auto w-[90%] max-w-[1200px] rounded-[25px] overflow-hidden
+      className="my-[48px] mx-auto w-[90%] max-w-[1200px] rounded-[25px] overflow-hidden
     h-[50vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh]"
->
-  
-  <Swiper
-    modules={[Autoplay, Pagination, Navigation]}
-    autoplay={{ delay: 3000 }}
-    pagination={{ clickable: true }}
-    // navigation
-    className="mainSlider"
-   
-  >
-    {slideItems}
-  </Swiper>
-</section>
-
-
+    >
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation]}
+        autoplay={{ delay: 3000 }}
+        pagination={{ clickable: true }}
+        // navigation
+        className="mainSlider"
+      >
+        {slideItems}
+      </Swiper>
+    </section>
   );
 }

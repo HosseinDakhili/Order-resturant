@@ -3,18 +3,20 @@ import assets from "../../assets";
 import fetchData from "../../Utils/fetchData";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Loading from "../../Components/Loading/Loading";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    (async () => {
-      const response = await fetchData("categories?populate=*");
-      setCategories(response?.data);
-    })();
-    document.title = 'دسته بندی ها'
-  }, []);
-  const navigate = useNavigate();
-  const categoryItems = categories?.map((c) => {
+      (async () => {
+          const response = await fetchData("categories?populate=*");
+          setCategories(response?.data);
+        })();
+        document.title = 'دسته بندی ها'
+      }, []);
+      const navigate = useNavigate();
+      if(!categories || categories.length==0) return <Loading />
+      const categoryItems = categories?.map((c) => {
     return (
       <>
         <div
