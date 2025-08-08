@@ -14,6 +14,9 @@ export default function Home() {
      <Categories/>
      <Brands/>
      <Comments/>
+    <head>
+      <title>خانه</title>
+    </head>
     </>
   )
 }

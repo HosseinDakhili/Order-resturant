@@ -14,3 +14,8 @@
 body {
   font-family: "vazir", sans-serif;
 }
+
+select option:hover {
+  background-color: #fbbf24; 
+  color: #642b2b;
+}

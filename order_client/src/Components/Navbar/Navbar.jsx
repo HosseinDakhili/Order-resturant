@@ -29,7 +29,7 @@ export default function Navbar() {
           <Link to={"/categories"}>دسته بندی های غذا ها</Link>
         </li>
         <li>
-          <Link to={"/foods/all-categories"}>منو ها</Link>
+          <Link to={"/foods/all/all-categories"}>منو ها</Link>
         </li>
         <li>
           <Link to={"/best-foods"}>بهترین غذاها</Link>
