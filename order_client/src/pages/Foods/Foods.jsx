@@ -107,7 +107,7 @@ export default function Foods() {
             <Slider.Thumb className="block w-5 h-5 bg-orange-600 rounded-full shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500" />
           </Slider.Root>
           <div className="mt-4 text-center text-gray-700">
-            قیمت: {priceRange[1]} - {priceRange[0]}
+            قیمت: {(priceRange[1])*1000} - {(priceRange[0])*1000}
           </div>
         </div>
       </div>
