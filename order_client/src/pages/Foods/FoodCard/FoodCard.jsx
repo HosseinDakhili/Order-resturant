@@ -41,7 +41,7 @@ export default function FoodCard({
             {discount > 0 && (
               <>
                 <span className="text-green-700 font-bold text-base">
-                  {Math.round(finalPrice * 1000)} تومان
+                  {Math.round(finalPrice)*1000} تومان
                 </span>
                 <span className="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-lg">
                   {discount}% تخفیف
