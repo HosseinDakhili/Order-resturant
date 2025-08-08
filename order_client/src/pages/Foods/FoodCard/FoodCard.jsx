@@ -11,12 +11,13 @@ export default function FoodCard({
   price,
   discount,
   rating,
+  onClick
 }) {
   const navigate = useNavigate();
   const finalPrice = price - (price * discount) / 100;
 
   return (
-    <div className="w-full max-w-[480px] rounded-2xl py-4 px-5 shadow-2xl bg-white">
+    <div onClick={onClick} className="w-full max-w-[480px] rounded-2xl py-4 px-5 shadow-2xl bg-white">
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="w-full md:w-[200px] h-[180px] overflow-hidden rounded-xl">
           <img className="w-full h-full object-cover" src={img} alt={name} />
@@ -34,13 +35,13 @@ export default function FoodCard({
                   : "text-green-700 font-bold text-base"
               }`}
             >
-              {price.toLocaleString()} تومان 112
+              {price * 1000} تومان
             </span>
 
             {discount > 0 && (
               <>
                 <span className="text-green-700 font-bold text-base">
-                  {finalPrice.toLocaleString()} تومان
+                  {Math.round(finalPrice * 1000)} تومان
                 </span>
                 <span className="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-lg">
                   {discount}% تخفیف
@@ -48,14 +49,16 @@ export default function FoodCard({
               </>
             )}
           </div>
-          <StarRatings
-            rating={rating}
-            starRatedColor={"gold"}
-            numberOfStars={5}
-            name="rating"
-            starDimension="22px"
-            starSpacing="3px"
-          />
+          <div dir="ltr">
+            <StarRatings
+              rating={rating}
+              starRatedColor={"gold"}
+              numberOfStars={5}
+              name="rating"
+              starDimension="22px"
+              starSpacing="3px"
+            />
+          </div>
         </div>
       </div>
     </div>

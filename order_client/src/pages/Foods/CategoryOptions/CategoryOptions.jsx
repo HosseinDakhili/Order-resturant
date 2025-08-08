@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import fetchData from "../../../utils/fetchData";
 
-export default function CategoryOptions({ handleChange}) {
+export default function CategoryOptions({ onChange}) {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     (async () => {
@@ -25,12 +25,12 @@ export default function CategoryOptions({ handleChange}) {
 
   return (
     <select
-      handleChange={handleChange}
+      onChange={onChange}
       defaultValue="all"
       className="w-48 h-12 px-4 bg-gradient-to-r from-orange-400 to-yellow-400 text-white rounded-3xl shadow-lg font-bold cursor-pointer focus:outline-none focus:ring-4 focus:ring-yellow-300"
     >
     
-      <option value="all" disabled hidden>
+      <option value="all">
         همه دسته بندی ها
       </option>
       {categoryItems}
