@@ -72,9 +72,10 @@ export default function Foods() {
 
   return (
     <section className="my-16">
+      <h3 className="text-4xl font-extrabold text-center mb-6 text-orange-600">منوی ویژه غذاها</h3>
       <div className="flex justify-between">
         <CategoryOptions onChange={handleCategory} />
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-10">
           <select
             onChange={handleSort}
             className="w-full float-start max-w-[200px] px-4 py-2 rounded-lg border border-gray-300 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-400"
