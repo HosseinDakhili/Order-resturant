@@ -89,7 +89,8 @@ export default function Foods() {
             <option value="createdAt">قدیمی‌ترین</option>
             <option value="price:desc">گران‌ترین</option>
             <option value="price">ارزان‌ترین</option>
-            <option value="discount:desc">تخفیف</option>
+            <option value="rating:desc">بازخورد</option>
+            <option value="discount">تخفیف</option>
           </select>
           <Slider.Root
             className="relative flex items-center select-none touch-none w-full h-5"

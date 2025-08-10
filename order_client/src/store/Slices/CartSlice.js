@@ -9,7 +9,7 @@ const initialState = {
 const cartSlice = createSlice({
     name:'cartSlice',
     initialState,
-    reducer:{
+    reducers:{
         clear:(state)=>{
             state.items = [],
             state.totalPrice=0

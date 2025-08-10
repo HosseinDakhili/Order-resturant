@@ -13,7 +13,6 @@ export default function FoodCard({
   rating,
   onClick
 }) {
-  const navigate = useNavigate();
   const finalPrice = price - (price * discount) / 100;
 
   return (

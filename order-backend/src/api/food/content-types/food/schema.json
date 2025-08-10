@@ -47,6 +47,9 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "foods"
+    },
+    "quantity": {
+      "type": "integer"
     }
   }
 }
