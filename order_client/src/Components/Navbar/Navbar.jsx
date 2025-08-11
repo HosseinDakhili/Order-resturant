@@ -46,7 +46,7 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to={"/feedback"}>نظرات</Link>
+          <Link to={"/feedback"}>بازخورد</Link>
         </li>
       </ul>
       {!jwt ? (
