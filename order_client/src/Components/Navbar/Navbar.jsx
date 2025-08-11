@@ -31,9 +31,7 @@ export default function Navbar() {
         <li>
           <Link to={"/foods/all/all-categories"}>منو ها</Link>
         </li>
-        <li>
-          <Link to={"/best-foods"}>بهترین غذاها</Link>
-        </li>
+
         <li className="relative">
           {cartLength > 0 && (
             <span className="absolute bottom-2 bg-red-600 w-2 h-5  px-2.5 py-1   translate-x-3 rounded-full   left-0 flex justify-center items-center">
@@ -49,18 +47,18 @@ export default function Navbar() {
           <Link to={"/feedback"}>نظرات</Link>
         </li>
       </ul>
-          {!jwt?
-           <Link to={"/auth"} className="w-full md:w-auto">
-        <button className="w-full md:w-auto flex gap-2 bg-[#03081F] text-white px-4 py-1 items-center justify-center rounded-2xl">
-          <img src={assets.userIcon} alt="user" className="h-5 w-5" />
-          <span>ورود/ثبت نام</span>
+      {!jwt ? (
+        <Link to={"/auth"} className="w-full md:w-auto">
+          <button className="w-full md:w-auto flex gap-2 bg-[#03081F] text-white px-4 py-1 items-center justify-center rounded-2xl">
+            <img src={assets.userIcon} alt="user" className="h-5 w-5" />
+            <span>ورود/ثبت نام</span>
+          </button>
+        </Link>
+      ) : (
+        <button className="w-full md:w-auto flex gap-2 bg-red-600 text-white px-4 py-1 items-center justify-center rounded-2xl">
+          خروج از حساب کاربری
         </button>
-      </Link>
-          
-          :
-          <button className="w-full md:w-auto flex gap-2 bg-red-600 text-white px-4 py-1 items-center justify-center rounded-2xl">خروج از حساب کاربری</button>
-          }
-     
+      )}
     </nav>
   );
 }

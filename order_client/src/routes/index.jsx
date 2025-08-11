@@ -10,6 +10,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import Categories from "../pages/Categories/Categories";
 import BestFoods from "../pages/BestFoods/BestFoods";
 import Feedback from "../pages/Feedback/Feedback";
+import Private from "./Authentication/Private";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/cart',
-                element:<Public/>,
+                element:<Private/>,
                 children:[
                     {
                         index:true,
