@@ -2,12 +2,14 @@ import React from "react";
 import assets from "../../assets";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar/SearchBar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaShoppingCart } from "react-icons/fa";
+import { logout } from "../../store/Slices/AuthSlice";
 
 export default function Navbar() {
   const { jwt } = useSelector((state) => state.auth);
   const cartLength = useSelector((state) => state.cart.items)?.length;
+  const dispatch = useDispatch();
   return (
     <nav
       dir="rtl"
@@ -55,7 +57,10 @@ export default function Navbar() {
           </button>
         </Link>
       ) : (
-        <button className="w-full md:w-auto flex gap-2 bg-red-600 text-white px-4 py-1 items-center justify-center rounded-2xl">
+        <button
+          onClick={()=>dispatch(logout())}
+          className="w-full md:w-auto flex gap-2 bg-red-600 text-white px-4 py-1 items-center justify-center rounded-2xl"
+        >
           خروج از حساب کاربری
         </button>
       )}
